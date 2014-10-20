@@ -4,7 +4,7 @@
 
 ## Install
 
-  npm install --save-dev gulp-jsinspect
+    npm install --save-dev gulp-jsinspect
 
 ## Usage
 
