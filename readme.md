@@ -8,8 +8,20 @@
 
 ## Usage
 
-## API
+	var gulp = require('gulp'),
+		jsinspect = require('gulp-jsinspect');
+
+	gulp.task('default', function(){
+		return gulp.src('*.js')
+			.pipe(jsinspect({/* options */}));
+	});
+
+## Options
+
+ * `threshold` - minimum size of nodes (default: 15)
+ * `identifiers` - match identifiers (default: false)
+ * `diff` - enable 2-way diffs (default: false)
 
 ## License
 
-MIT License &copy; Alexey Raspopov
+[MIT License](https://en.wikipedia.org/wiki/MIT_License) &copy; Alexey Raspopov
