@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/alexeyraspopov/gulp-jsinspect",
   "dependencies": {
+    "gulp-util": "^3.0.1",
     "jsinspect": "^0.1.0",
-    "through2": "^0.6.3"
+    "through2": "^0.6.3",
+    "util-extend": "^1.0.1"
   }
 }
