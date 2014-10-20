@@ -1,0 +1,27 @@
+{
+  "name": "gulp-jsinspect",
+  "version": "0.0.0",
+  "description": "A JavaScript copy-paste analysis gulp task",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexeyraspopov/gulp-jsinspect.git"
+  },
+  "keywords": [
+    "gulpplugin",
+    "analysis",
+    "analyze",
+    "report",
+    "duplication",
+    "copy-paste"
+  ],
+  "author": "Alexey Raspopov <avenger7x13@gmail.com> (https://github.com/alexeyraspopov)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexeyraspopov/gulp-jsinspect/issues"
+  },
+  "homepage": "https://github.com/alexeyraspopov/gulp-jsinspect"
+}
