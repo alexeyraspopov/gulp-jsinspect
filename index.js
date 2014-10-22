@@ -5,9 +5,25 @@ var extend = require('util-extend'),
 module.exports = function(options){
 	options = extend({
 		threshold: 15,
-		identifiers: false,
-		diff: false
+		identifiers: true,
+		diff: true
 	}, options);
 
-	return through.obj();
+	var files = [];
+
+	return through.obj(function(file, enc, cb){
+		if(file.isNull()){
+			return cb(null, file);
+		}
+
+		if(file.isStream()){
+			return cb(new PluginError('gulp-complexity', 'Streaming not supported'));
+		}
+
+		files.push(file);
+		cb(null, file);
+	}, function(cb){
+
+		cb();
+	});
 };
