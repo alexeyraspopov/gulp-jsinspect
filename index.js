@@ -1,3 +1,5 @@
+'use strict';
+
 var extend = require('util-extend'),
 	through = require('through2'),
 	gutil = require('gulp-util'),
