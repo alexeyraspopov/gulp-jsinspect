@@ -1,12 +1,15 @@
 var extend = require('util-extend'),
 	through = require('through2'),
-	jsinspect = require('jsinspect/lib/inspector');
+	gutil = require('gulp-util'),
+	jsinspect = require('jsinspect/lib/inspector'),
+	PluginError = gutil.PluginError;
 
 module.exports = function(options){
 	options = extend({
-		threshold: 15,
-		identifiers: true,
-		diff: true
+		threshold: 30,
+		diff: true,
+		identifiers: false,
+		failOnMatch: true
 	}, options);
 
 	var files = [];
@@ -17,13 +20,13 @@ module.exports = function(options){
 		}
 
 		if(file.isStream()){
-			return cb(new PluginError('gulp-complexity', 'Streaming not supported'));
+			return cb(new PluginError('gulp-jsinspect', 'Streaming not supported'));
 		}
 
 		files.push(file);
 		cb(null, file);
 	}, function(cb){
-
+		// inspect
 		cb();
 	});
 };
