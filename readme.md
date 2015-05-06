@@ -1,27 +1,64 @@
-# gulp-jsinspect
+# gulp-[jsinspect](https://github.com/danielstjules/jsinspect)
 
-> Detect copy-pasted and structurally similar code with [JSInspect](https://github.com/danielstjules/jsinspect)
+> Gulp plugin for running jsinspect (detect copy-pasted and structurally similar code)
+
 
 ## Install
 
-    npm install --save-dev gulp-jsinspect
+```sh
+$ npm install --save-dev gulp-jsinspect
+```
+
 
 ## Usage
 
-	var gulp = require('gulp'),
-		jsinspect = require('gulp-jsinspect');
+```js
+var gulp = require('gulp');
+var jsinspect = require('gulp-jsinspect');
 
-	gulp.task('default', function(){
-		return gulp.src('*.js')
-			.pipe(jsinspect({/* options */}));
-	});
+gulp.task('default', function () {
+  return gulp.src('app.js')
+    .pipe(jsinspect({
+      'threshold':   10,
+      'identifiers': true,
+      'suppress':    0
+    }));
+});
+```
 
-## Options
 
- * `threshold` - minimum size of nodes (default: 15)
- * `identifiers` - match identifiers (default: false)
- * `diff` - enable 2-way diffs (default: false)
+### Options
 
-## License
+#### threshold
+Type: `Number`
+Default value: `15`
 
-[MIT License](https://en.wikipedia.org/wiki/MIT_License) &copy; Alexey Raspopov
+Number of nodes.
+
+#### suppress
+Type: `Number`
+Default value: `100`
+
+length to suppress diffs (off: 0).
+
+#### identifiers
+Type: `Boolean`
+Default value: `false`
+
+Match identifiers.
+
+#### noDiff
+Type: `Boolean`
+Default value: `false`
+
+Disables 2-way diffs.
+
+#### noColor
+Type: `Boolean`
+Default value: `false`
+
+Disables colors.
+
+#### failOnMatch
+Type: boolean
+Default value: `true`

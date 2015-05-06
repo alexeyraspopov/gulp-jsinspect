@@ -1,34 +1,67 @@
 'use strict';
 
-var extend = require('util-extend'),
-	through = require('through2'),
-	gutil = require('gulp-util'),
-	jsinspect = require('jsinspect/lib/inspector'),
-	PluginError = gutil.PluginError;
+var extend    = require('util-extend');
+var gutil     = require('gulp-util');
+var through   = require('through2');
+var chalk     = require('chalk');
 
-module.exports = function(options){
+var Inspector = require('jsinspect/lib/inspector');
+var Reporter  = require('jsinspect/lib/reporters');
+
+module.exports = function(options) {
+	var paths = [];
+
 	options = extend({
-		threshold: 30,
-		diff: true,
+		threshold: 15,
+		noDiff: false,
 		identifiers: false,
+		suppress: 100,
+		noColor: false,
 		failOnMatch: true
 	}, options);
+	options.reporter = 'default';
 
-	var files = [];
+	if (options.noColor) {
+		chalk.enabled = false;
+	}
 
-	return through.obj(function(file, enc, cb){
-		if(file.isNull()){
-			return cb(null, file);
+	return through.obj(function (file, enc, cb) {
+		if (file.isNull()) {
+			cb(null, file);
+			return;
 		}
 
-		if(file.isStream()){
-			return cb(new PluginError('gulp-jsinspect', 'Streaming not supported'));
-		}
-
-		files.push(file);
+		paths.push(file.path);
 		cb(null, file);
-	}, function(cb){
-		// inspect
-		cb();
+	}, function (cb) {
+		if (paths.length === 0) {
+			cb();
+			return;
+		}
+
+		var inspector = new Inspector(paths, {
+			threshold:   options.threshold,
+			diff:        !options.noDiff,
+			identifiers: options.identifiers
+		});
+
+		var reporter = new Reporter[options.reporter](inspector, {
+			diff:     !options.noDiff,
+			suppress: options.suppress
+		});
+
+		if (options.failOnMatch) {
+			inspector.on('match', function() {
+				this.emit('error', new gutil.PluginError('jsinspect-gulp', 'jsinspect failed', {
+					showStack: false
+				}));
+			});
+		}
+
+		inspector.on('end', function() {
+			cb();
+		});
+
+		inspector.run();
 	});
 };

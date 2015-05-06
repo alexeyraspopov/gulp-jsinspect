@@ -1,27 +1,42 @@
 {
   "name": "gulp-jsinspect",
   "version": "0.0.0",
-  "description": "A JavaScript copy-paste analysis gulp task",
-  "main": "index.js",
-  "repository": "alexeyraspopov/gulp-jsinspect",
+  "description": "Gulp plugin for running jsinspect (detect copy-pasted and structurally similar code)",
+  "license": "MIT",
+  "homepage": "https://github.com/alexeyraspopov/gulp-jsinspect",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexeyraspopov/gulp-jsinspect"
+  },
+  "author": "Alexey Raspopov (https://github.com/alexeyraspopov)",
+  "contributors": [
+    {
+      "name": "Dmitry Semigradsky",
+      "email": "semigradskyd@gmail.com",
+      "url": "https://github.com/Semigradsky"
+    }
+  ],
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "files": [
+    "index.js"
+  ],
   "keywords": [
     "gulpplugin",
-    "analysis",
-    "analyze",
-    "report",
-    "duplication",
-    "copy-paste"
+    "inspect",
+    "detect",
+    "code",
+    "duplicate",
+    "structure",
+    "copy",
+    "paste"
   ],
-  "author": "Alexey Raspopov (https://github.com/alexeyraspopov)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/alexeyraspopov/gulp-jsinspect/issues"
-  },
-  "homepage": "https://github.com/alexeyraspopov/gulp-jsinspect",
   "dependencies": {
-    "gulp-util": "^3.0.1",
-    "jsinspect": "^0.1.0",
-    "through2": "^0.6.3",
+    "chalk": "*",
+    "gulp-util": "^3.0.0",
+    "jsinspect": "^0.5.0",
+    "through2": "^0.6.1",
     "util-extend": "^1.0.1"
   }
 }
