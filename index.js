@@ -38,6 +38,8 @@ module.exports = function(options) {
 			cb();
 			return;
 		}
+		
+		var self = this;
 
 		var inspector = new Inspector(paths, {
 			threshold:   options.threshold,
@@ -52,7 +54,7 @@ module.exports = function(options) {
 
 		if (options.failOnMatch) {
 			inspector.on('match', function() {
-				this.emit('error', new gutil.PluginError('jsinspect-gulp', 'jsinspect failed', {
+				self.emit('error', new gutil.PluginError('jsinspect-gulp', 'jsinspect failed', {
 					showStack: false
 				}));
 			});
@@ -60,6 +62,12 @@ module.exports = function(options) {
 
 		inspector.on('end', function() {
 			cb();
+		});
+		
+		inspector.on('error', function(err){
+			self.emit('error', new gutil.PluginError('jsinspect-gulp', err.message, {
+				showStack: false
+			}));
 		});
 
 		inspector.run();
