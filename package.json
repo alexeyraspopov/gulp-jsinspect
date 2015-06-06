@@ -1,6 +1,6 @@
 {
   "name": "gulp-jsinspect",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Gulp plugin for running jsinspect (detect copy-pasted and structurally similar code)",
   "license": "MIT",
   "homepage": "https://github.com/alexeyraspopov/gulp-jsinspect",
