@@ -2,17 +2,15 @@
 
 > Gulp plugin for running jsinspect (detect copy-pasted and structurally similar code)
 
-
 ## Install
 
 ```sh
 $ npm install --save-dev gulp-jsinspect
 ```
 
-
 ## Usage
 
-```js
+```javascript
 var gulp = require('gulp');
 var jsinspect = require('gulp-jsinspect');
 
@@ -26,39 +24,51 @@ gulp.task('default', function () {
 });
 ```
 
-
 ### Options
 
 #### threshold
+
 Type: `Number`
 Default value: `15`
 
 Number of nodes.
 
 #### suppress
+
 Type: `Number`
 Default value: `100`
 
 length to suppress diffs (off: 0).
 
 #### identifiers
+
 Type: `Boolean`
 Default value: `false`
 
 Match identifiers.
 
 #### noDiff
+
 Type: `Boolean`
 Default value: `false`
 
 Disables 2-way diffs.
 
 #### noColor
+
 Type: `Boolean`
 Default value: `false`
 
 Disables colors.
 
 #### failOnMatch
-Type: boolean
+
+Type: `Boolean`
 Default value: `true`
+
+#### reporter
+
+Type: `String`
+Default value: `default`
+
+Specify the reporter.
