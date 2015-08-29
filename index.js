@@ -17,9 +17,9 @@ module.exports = function(options) {
 		identifiers: false,
 		suppress: 100,
 		noColor: false,
-		failOnMatch: true
+		failOnMatch: true,
+		reporter: 'default'
 	}, options);
-	options.reporter = 'default';
 
 	if (options.noColor) {
 		chalk.enabled = false;
