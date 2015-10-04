@@ -35,8 +35,8 @@
   "dependencies": {
     "chalk": "*",
     "gulp-util": "^3.0.0",
-    "jsinspect": "^0.5.0",
-    "through2": "^0.6.1",
+    "jsinspect": "^0.7.0",
+    "through2": "^2.0.0",
     "util-extend": "^1.0.1"
   }
 }

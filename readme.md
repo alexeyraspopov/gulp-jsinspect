@@ -2,6 +2,8 @@
 
 > Gulp plugin for running jsinspect (detect copy-pasted and structurally similar code)
 
+[![Dependency Status](https://david-dm.org/alexeyraspopov/gulp-jsinspect.svg)](https://david-dm.org/alexeyraspopov/gulp-jsinspect)
+
 ## Install
 
 ```sh
