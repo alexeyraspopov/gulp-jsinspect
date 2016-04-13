@@ -47,7 +47,6 @@ module.exports = function(options) {
 		var self = this;
 
 		var inspector = new Inspector(paths, {
-			ignore:      options.ignore,
 			threshold:   options.threshold,
 			diff:        !options.noDiff,
 			identifiers: options.identifiers
