@@ -74,3 +74,10 @@ Type: `String`
 Default value: `default`
 
 Specify the reporter.
+
+### ignore
+
+Type: `Regex`
+Default value: ''
+
+Choose files to ignore
