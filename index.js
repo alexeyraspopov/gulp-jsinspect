@@ -22,6 +22,8 @@ module.exports = function(options) {
 		ignore: ''
 	}, options);
 
+	options.ignore = new RegExp(options.ignore);
+
 	if (options.noColor) {
 		chalk.enabled = false;
 	}
@@ -32,8 +34,10 @@ module.exports = function(options) {
 			return;
 		}
 
-		paths.push(file.path);
-		cb(null, file);
+		if (!options.ignore.test(file.path)) {
+			paths.push(file.path);
+			cb(null, file);
+		}
 	}, function (cb) {
 		if (paths.length === 0) {
 			cb();
