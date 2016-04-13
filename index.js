@@ -18,7 +18,8 @@ module.exports = function(options) {
 		suppress: 100,
 		noColor: false,
 		failOnMatch: true,
-		reporter: 'default'
+		reporter: 'default',
+		ignore: ''
 	}, options);
 
 	if (options.noColor) {
