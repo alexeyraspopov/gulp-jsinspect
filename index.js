@@ -36,8 +36,9 @@ module.exports = function(options) {
 
 		if (!options.ignore.test(file.path)) {
 			paths.push(file.path);
-			cb(null, file);
 		}
+
+		cb(null, file)
 	}, function (cb) {
 		if (paths.length === 0) {
 			cb();
